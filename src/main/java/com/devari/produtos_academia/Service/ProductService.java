@@ -20,7 +20,7 @@ public class ProductService {
         return productRepository.save(productEntity);
     }
 
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         if (!productRepository.existsById(id)){
             throw new RuntimeException("id not found");
         }
