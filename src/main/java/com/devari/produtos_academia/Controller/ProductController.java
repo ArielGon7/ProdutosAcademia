@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
@@ -18,6 +19,11 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<ProductEntity>> findAll(){
         return ResponseEntity.ok(productService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<ProductEntity>> findById(Long id){
+        return ResponseEntity.ok(productService.findById(id));
     }
 
     @PostMapping
